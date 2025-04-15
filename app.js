@@ -54,3 +54,12 @@ searchBtn.addEventListener('click',() =>{
 
 
 //update weather UI
+function updateWeatherUI(data){
+    const {name,sys,main,weather,wind,rain}= data;
+    tempElement.textContent=`${Math.round(main.temp)}°C`;
+    descriptionElement.textContent=weather[0].description;
+    locationElement.textContent =`${name}, ${sys.country}`;
+
+    //update weather UI details
+    
+}
