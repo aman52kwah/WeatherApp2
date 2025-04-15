@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+<body>
+   
+<div class="container">
+    <div class="weather-side">
+      <div class="weather-gradient"></div>
+      <div class="date-container">
+        <h2 class="date-dayname">Tuesday</h2><span class="date-day">15 April,2025</span>
+        <i class="location-icon" data-feather="map-pin"></i><span class="location"></span>
+      </div>
+      <div class="weather-container"><i class="weather-icon" data-feather="cloud"></i>
+        <h1 class="temp">°C</h1>
+        <h3 class="description"></h3>
+      </div>
+    </div>
+    <div class="info-side">
+      <div class="today-info-container">
+        <div class="today-info">
+          <div class="precipitation" id="precipitation"> <span class="title">PRECIPITATION</span><span class="value"></span>
+            <div class="clear"></div>
+          </div>
+          <div class="humidity" id="humidity"> <span class="title">HUMIDITY</span><span class="value"></span>
+            <div class="clear"></div>
+          </div>
+          <div class="wind" id="wind"> <span class="title">WIND</span><span class="value"></span>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      <!-- data-feather="sun" -->
+      <div class="week-container">
+        <ul class="week-list">
+
+          <li class="active"><i class="day-icon" ></i><span class="day-name">Wed</span><span class="day-temp">25°C</span></li>
+          <li><i class="day-icon" ></i><span class="day-name">Thur</span><span class="day-temp">25°C</span></li>
+          <li><i class="day-icon" ></i><span class="day-name">Fri</span><span class="day-temp">25°C</span></li>
+          <li><i class="day-icon" ></i><span class="day-name">Sat</span><span class="day-temp">25°C</span></li>
+          <li><i class="day-icon" ></i><span class="day-name">Sun</span><span class="day-temp">25°C</span></li>
+          <div class="clear"></div>
+        </ul>
+      </div>
+<!-- search box --> 
+ <div class="search-box">
+  <input type="text" placeholder="enter city" id="city-input">
+  <button id="search-btn">Search</button>
+ </div>
+
+
+ <!-- <div class="location-container">
+  <button class="location-button"> <i data-feather="map-pin"></i><span>Change location</span></button>
+</div> -->
+
+ <!-- error message -->
+ <div class="hidden" id="error-msg">City not found</div>
+</div>
+
+    </div>
+  </div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
