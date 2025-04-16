@@ -7,15 +7,15 @@
  const errorMsg = document.getElementById('error-msg');
 
  //weather display
- const tempElement = document.querySelector('.temp')
+ const tempElement = document.querySelector('.temp');
  const descriptionElement = document.querySelector('.description');
- const humidityElement = document.querySelector('#humidity.value');
- const windElement = document.querySelector('#wind.value');
- const precipitationElement = document.querySelector('#precipitaion.value');
+ const humidityElement = document.querySelector('#humidity .value');
+ const windElement = document.querySelector('#wind .value');
+ const precipitationElement = document.querySelector('#precipitation .value');
  const locationElement = document.querySelector('.location');
  const dateDayName = document.querySelector('.date-dayname');
  const dateDay = document.querySelector('.date-day');
- const weatherIcon = document.querySelector('.waether-icon');
+ const weatherIcon = document.querySelector('.weather-icon');
 
  // show default city
  window.addEventListener('load', () =>{
@@ -26,7 +26,7 @@
 cityInput.addEventListener('keypress',(e) =>
 {
     if(e.key == 'Enter'){
-        const city =cityInput.value.trim();
+        const city = cityInput.value.trim();
         if(city) getWeatherData(city);
     }
 });
@@ -60,7 +60,7 @@ function updateWeatherUI(data){
    
    //update main weather
     tempElement.textContent=`${Math.round(main.temp)}°C`;
-    descriptionElement.textContent=weather[0].description;
+    descriptionElement.textContent= weather[0].description;
     locationElement.textContent =`${name}, ${sys.country}`;
 
     //update weather UI details
@@ -68,31 +68,51 @@ function updateWeatherUI(data){
     windElement.textContent =`${Math.round(wind.speed * 3.6)}km/h`;
 
 
-    //percipitation if rain might not be available and fixed to mm
-    const percipitation = rain ? rain ['1h'] || 0 : 0 ;
-    precipitationElement.textContent =`${percipitation}mm`;
-
+    //precipitation if rain might not be available and fixed to mm
+    const precipitation= rain ? rain['1h'] || 0 : 0;
+    precipitationElement.textContent = `${precipitation} mm`;
 
     //update Date
     updateDate();
 
-    //upate weather icon
+    // upate weather icon
     if (weatherIcon) {
         weatherIcon.innerHTML=`<img src="https://openweathermap.org/img/wn/${weather[0].icon}.png" alt="${
         weather[0].description}">`;
+    }
+   
+}
+function updateWeatherIcon(weatherCondition){
+    let iconName = 'sun'; //default
+
+    const weatherMap ={
+        'Clear':'sun',
+        'Clouds':'cloud',
+        'Rain':'cloud-rain',
+        'Thunderstorm':'cloud-lightning',
+        'Snow':'cloud-snow',
+        'Mist':'cloud-drizzle'
+    };
+    if (weatherMap[weatherCondition]){
+        iconName = weatherMap[weatherCondition]
+    }
+
+    if (typeof feather !== 'undefined'){
+        weatherIcon.setAttribute('data-feather',iconName);
+        feather.replace();
     }
 }
 
 function updateDate(){
     const now = new Date();
-    const days =['Sunday','Monday','TUESDAY','Wednesday',
+    const days =['Sunday','Monday','Tues','Wednesday',
         'Thursday','Friday','Saturday'
     ];
     const months = ['Jan','Feb','Mar','Apr','May','June','Jul',
         'Aug','Sep','Oct','Nov','Dec'
     ];
 
-    dateDayName.textContent =days[now.getDay];
+    dateDayName.textContent =days[now.getDay()];
     dateDay.textContent=`${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
 }
 
