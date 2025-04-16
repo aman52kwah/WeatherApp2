@@ -207,42 +207,86 @@ body {
 }
 
 .search-box {
-	padding: 25px 35px;
+	display: flex;
+	gap: 10px;
+	margin: 20px 0;
+	padding: 0 15px;
 }
 
-.Search-btn {
-	outline: none;
-	width: 100%;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+
+#city-input{
+	flex: 1;
+	padding: 12px 15px;
 	border: none;
-	border-radius: 25px;
-	padding: 10px;
-	font-family: 'Montserrat', sans-serif;
-	background-image: var(--gradient);
-	color: #ffffff;
-	font-weight: 700;
-	-webkit-box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
-	        box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
+	border-radius: 30px;
+	background: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(5px);
+	color: white;
+	font-size: 16px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+	
+}
+
+#city-input::placeholder{
+	color: rgba(255, 255, 255, 0.7);
+}
+
+#city-input:focus{
+	outline: none;
+	background: rgba(255, 255,255, 0.3);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#search-btn {
+	padding: 12px 25px;
+	border: none;
+	border-radius: 30px;
+	background: linear-gradient(135deg,#6e8efb,#a777e3);
+	color: white;
+	font-size: 16px;
 	cursor: pointer;
-	-webkit-transition: -webkit-transform 200ms ease;
-	transition: -webkit-transform 200ms ease;
-	-o-transition: transform 200ms ease;
-	transition: transform 200ms ease;
-	transition: transform 200ms ease, -webkit-transform 200ms ease;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	transition: all 0.5s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
 }
 
-.search-btn:hover {
-	-webkit-transform: scale(0.95);
-	    -ms-transform: scale(0.95);
-	        transform: scale(0.95);
+
+
+#search-btn:hover {
+	       transform: translateY(-2px);
+	       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+		   background: linear-gradient(135deg,#5d7df5,#9b6bdd);
 }
 
-.search-btn .feather {
+#search-btn:active{
+	transform: translateY(0);
+
+}
+
+/* #search-btn::before{
+	content: "🔍";
+	font-size: 14px;
+} */
+
+/* #search-btn::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url();
+    background-size: contain;
+} */
+
+
+/* .search-btn .feather {
 	height: 1em;
 	width: auto;
 	margin-right: 5px;
-}
+} */
 
 .hidden{
 	display: none;
